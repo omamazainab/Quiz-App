@@ -1,24 +1,24 @@
-import  React from 'react'
+import React from 'react'
 
 export type Quiz = {
     category: string
     correct_answer: string
     difficulty: string
-    incorrect_answers : string[]
+    incorrect_answers: string[]
     question: string
-    type:string
+    type: string
 }
 
 
 export type questionPropsType = {
     question: string
     options: string[]
-    callback: (e:React.FormEvent<EventTarget>) => void
+    callback: (e: React.FormEvent<EventTarget>, ans: string) => void
 }
 
 
 export type QuestionType = {
     question: string
-    answer:string
+    answer: string
     option: string[]
 }

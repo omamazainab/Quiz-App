@@ -7,21 +7,27 @@ import QuestionCard from './components/QuestionCard'
 function App() {
 
   let [quiz, setQuiz] = useState<QuestionType[]>([])
-  let [currentQuestion, setCurrentQuestion] = useState<number>(0)
+  let [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(0)
+  let [score, setScore] = useState<number>(0);
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    if(currentQuestion < quiz.length - 1){
-      setCurrentQuestion(++currentQuestion)
+
+    const currentQuestion = quiz[currentQuestionNumber]
+
+    // if()
+
+    if (currentQuestionNumber < quiz.length - 1) {
+      setCurrentQuestionNumber(++currentQuestionNumber)
     }
   }
 
-  useEffect(() => { 
+  useEffect(() => {
 
     async function fetchData() {
 
       const questions: QuestionType[] = await getQuizDetails(5, 'easy')
-      setQuiz(questions)  
+      setQuiz(questions)
 
     }
     fetchData();
@@ -38,8 +44,8 @@ function App() {
     <div className="App">
 
       <QuestionCard
-        options={quiz[currentQuestion].option}
-        question={quiz[currentQuestion].question}
+        options={quiz[currentQuestionNumber].option}
+        question={quiz[currentQuestionNumber].question}
         callback={handleSubmit}
       />
     </div>
