@@ -22,6 +22,8 @@ const QuestionCard: React.FC<questionPropsType> = ({ question, options, callback
                                     <input 
                                     type="radio" 
                                     name="opt" 
+                                    required
+                                    checked={selectedAns === opt}
                                     value={opt} 
                                     onChange={handleSelection}
                                     />

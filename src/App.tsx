@@ -10,16 +10,23 @@ function App() {
   let [currentQuestionNumber, setCurrentQuestionNumber] = useState<number>(0)
   let [score, setScore] = useState<number>(0);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<EventTarget>, usrAns: string) => {
     e.preventDefault();
 
-    const currentQuestion = quiz[currentQuestionNumber]
+    const currentQuestion:QuestionType = quiz[currentQuestionNumber]
 
-    // if()
+    if (usrAns === currentQuestion.answer) {
+      setScore(++score)
+    }
 
     if (currentQuestionNumber < quiz.length - 1) {
       setCurrentQuestionNumber(++currentQuestionNumber)
+    }else{
+      alert(score)
+      setCurrentQuestionNumber(0);
+      setScore(0)
     }
+    
   }
 
   useEffect(() => {
@@ -42,7 +49,7 @@ function App() {
   }
   return (
     <div className="App">
-
+      {score}
       <QuestionCard
         options={quiz[currentQuestionNumber].option}
         question={quiz[currentQuestionNumber].question}
