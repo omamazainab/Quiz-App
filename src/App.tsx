@@ -49,7 +49,6 @@ function App() {
   }
   return (
     <div className="App">
-      {score}
       <QuestionCard
         options={quiz[currentQuestionNumber].option}
         question={quiz[currentQuestionNumber].question}
