@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+
 const QuestionCard: React.FC<questionPropsType> = ({ question, options, callback }) => {
 
     let [selectedAns, setSelectedAns] = useState('');
@@ -14,31 +15,37 @@ const QuestionCard: React.FC<questionPropsType> = ({ question, options, callback
         setSelectedAns(ev.target.value)
     }
 
+    function decodeHtml(input:string) {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = input;
+        return txt.value;
+    }
+
     return (
         <div className="card-container ">
-            <Card>
+            <Card style={{backgroundColor:'rgba(255,255,255,0.8)'}}>
                 <CardContent>
                     <Typography variant="h4" component="h2">Question</Typography>
                     <form onSubmit={(e: React.FormEvent<EventTarget>) => callback(e, selectedAns)}>
-                    <Typography variant="h6" >{question}</Typography>
+    <Typography variant="h6" >{decodeHtml(question)}</Typography>
                         {
-                            options.map((opt: string, index: number)=>{
+                            options.map((opt: string, index: number) => {
                                 return (
                                     <div key={index}>
                                         <label>
-                                            <input 
-                                            type="radio" 
-                                            name="opt" 
-                                            required
-                                            checked={selectedAns === opt}
-                                            value={opt} 
-                                            onChange={handleSelection}
+                                            <input
+                                                type="radio"
+                                                name="opt"
+                                                required
+                                                checked={selectedAns === opt}
+                                                value={opt}
+                                                onChange={handleSelection}
                                             />
-                                            {opt}
+                                            {decodeHtml(opt)}
                                         </label>
                                     </div>
                                 )
-                            })        
+                            })
                         }
                         <input type='submit' />
                     </form>
@@ -50,7 +57,7 @@ const QuestionCard: React.FC<questionPropsType> = ({ question, options, callback
                 </CardActions>
             </Card>
 
-         </div>   
+        </div>
     )
 }
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { getQuizDetails } from './services/QuizServic'
 import { QuestionType } from './Types/quizTypes'
-import QuestionCard from './components/QuestionCard'
+import StartQuiz from './components/StartQuiz'
 
 function App() {
 
@@ -26,7 +26,11 @@ function App() {
       setCurrentQuestionNumber(0);
       setScore(0)
     }
-    
+
+  }
+
+  const startQuiz = (e: React.FormEvent<EventTarget>, category: number, level:string ) => {
+    console.log('category')
   }
 
   useEffect(() => {
@@ -49,10 +53,16 @@ function App() {
   }
   return (
     <div className="App">
-      <QuestionCard
+
+
+
+      {/* <QuestionCard
         options={quiz[currentQuestionNumber].option}
         question={quiz[currentQuestionNumber].question}
         callback={handleSubmit}
+      /> */}
+      <StartQuiz 
+        callback={startQuiz}
       />
     </div>
   );

@@ -25,6 +25,13 @@
     left: 5vw;
 }
 
+.start-container{
+  width: 50vw !important;
+  position: absolute;
+  top: 30vh;
+  left: 25vw;
+}
+
 .text-center{
   text-align: center !important;
 }

@@ -22,3 +22,9 @@ export type QuestionType = {
     answer: string
     option: string[]
 }
+
+export type quizStartPropType = {
+    callback: (e: React.FormEvent<EventTarget>, category: number, level:string ) => void
+
+}
+
