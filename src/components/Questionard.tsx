@@ -1,17 +1,17 @@
 import React from 'react'
 
 interface Props {
-    question: String;
+    question: string;
     answers: string[];
-    callack: any;
-    userAnswer: string;
+    callback: any;
+    userAnswer: any;
     questionNo: number;
     totalQuestions: number;
 }
 
 const Questionard: React.FC<Props> = ({ question,
     answers,
-    callack,
+    callback,
     userAnswer, 
     questionNo, 
     totalQuestions 
@@ -21,6 +21,19 @@ const Questionard: React.FC<Props> = ({ question,
             <p className="number">
                 Question : {questionNo} / {totalQuestions}
             </p>
+            <p dangerouslySetInnerHTML={{ __html : question }}>
+
+            </p>
+
+            <div>
+                {answers.map(answer => (
+                    <div key={answer} >
+                        <button disabled={userAnswer} value={answer} onClick={callback}>
+                        <span dangerouslySetInnerHTML={{__html:answer}}></span>
+                        </button>
+                    </div>
+                ))}
+            </div>
 
         </div>
     )
