@@ -5,33 +5,71 @@
 #root{
   padding: 0;
   margin: 0;
+  
 }
 
-.App{
-  background:  linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1540835296355-c04f7a063cbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80') ;
-  height: 100vh;
-  background-size: cover;
+body{
+  background: url('https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80');
   background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+h1{
+  font-family: 'Indie Flower', cursive;
+  background-color: rgba(0,0,0,0.5);
   color: white;
-  padding: 0;
-  margin: 0;
+  width: 20rem;
+  margin: 1rem auto;
+  padding: 1rem;
 }
 
-.card-container{
-  width: 90vw;
-    margin: auto;
-    position: absolute;
-    top: 30vh;
-    left: 5vw;
+.start,.next{
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: rgba(0,0,256,0.7);
+  border: none;
+  color: white;
+  margin: 0.5rem;
 }
 
-.start-container{
-  width: 50vw !important;
-  position: absolute;
-  top: 30vh;
-  left: 25vw;
+.score{
+  font-size: 1.5rem;
+  font-family: 'Indie Flower', cursive;
+  font-weight: 900;
+  color: white;
 }
 
-.text-center{
-  text-align: center !important;
+.questionCard{
+  width: 20rem;
+  margin: auto;
+  background-color: rgba(256,256,256,0.6);
+  padding: 2rem 3rem;
 }
+
+.number{
+  font-family: 'Indie Flower', cursive;
+  font-size: 1rem;
+  font-weight: 900;
+  color: blue;
+}
+
+.question{
+  font-size:1rem;
+  font-weight: 500;
+}
+
+.answer-btn{
+  width: 100%;
+  padding: 1rem;
+  margin: 0.1rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.answer-btn:hover{
+  opacity: 0.7;
+}
+

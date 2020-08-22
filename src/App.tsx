@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { fetchQizQuestions } from './API';
 import { QuestionState, Difficulty } from './API'
 import Questioncard from './components/Questionard';
+import './App.css'
 
-type answerObject = {
+export type answerObject = {
   question: string;
   answer: string;
   correct: boolean;
